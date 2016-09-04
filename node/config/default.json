@@ -1,6 +1,6 @@
 {
-    "appSecret": "3034ab0f9c189cadafe34c76311a3498",
-    "pageAccessToken": "EAAWXV6kp5CcBAICsQXDQZC1rWeKeWsXbLkLGV23s9XefdzH0ZA9JFMroJfnCg8R1zYQn4lyByMhmGqJf4X1nBDtB1EDJ4Jts3aDVZCZB5EMrUrZAEH5oT76ZA2EFPUiUXFZCPj0r15rvFR7AdKwLbJDm1QupHVD4PQZD",
-    "validationToken": "validationToken",
-    "serverURL": ""
+    "appSecret": "",
+    "pageAccessToken": "",
+    "validationToken": "",
+    "serverURL": "https://merchantbot.herokuapp.com/"
 }
