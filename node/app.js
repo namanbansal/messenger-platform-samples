@@ -311,7 +311,12 @@ function receivedMessage(event) {
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+	console.log(event.message.attachments[0].payload);
+	var lat = event.message.attachments[0].payload.coordinates.lat;
+    var lng = event.message.attachments[0].payload.coordinates.long;
+	console.log("Lat %s",lat);
+	console.log("Long %s",lng);
+    sendTextMessage(senderID, "Message with attachment received" + " Lat: " + lat + " Lng: " + lng);
   }
 }
 
@@ -528,7 +533,8 @@ function sendTextMessage(recipientId, messageText) {
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
-
+  console.log("Compiled message to echo %s with payload %s",
+      recipientId, messageText);
   callSendAPI(messageData);
 }
 
@@ -804,6 +810,8 @@ function sendAccountLinking(recipientId) {
  *
  */
 function callSendAPI(messageData) {
+  console.log("MEssage data in call send api method %s", 
+        JSON.stringify(messageData));
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
     qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -823,6 +831,8 @@ function callSendAPI(messageData) {
         recipientId);
       }
     } else {
+	  console.log("Unable to send response");
+	  console.log(JSON.stringify(response));
       console.error(response.error);
     }
   });  
